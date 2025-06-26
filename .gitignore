@@ -1,0 +1,16 @@
+# Ignore Go build and dependency files
+bin/
+*.exe
+*.test
+*.out
+*.log
+*.tmp
+*.swp
+*.DS_Store
+vendor/
+# Go modules
+/go.sum
+# IDE/editor files
+.vscode/
+.idea/
+*.iml
