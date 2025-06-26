@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/mock"
@@ -116,4 +117,16 @@ func Test_Piece20Centimes(t *testing.T) {
 	machine.InsertCoin(20)
 	driver.AssertNotCalled(t, "BrewCoffee")
 	driver.AssertCalled(t, "ReturnChange", 20)
+}
+
+// 9. Pas de café disponible
+func Test_PasDeCafeDisponible(t *testing.T) {
+	driver := new(MockDriver)
+	driver.defective = false
+	driver.On("BrewCoffee").Return(fmt.Errorf("Plus de café")).Once()
+	driver.On("ReturnChange", 50).Return(nil).Once()
+	machine := NewCoffeeMachine(driver)
+	machine.InsertCoin(50)
+	driver.AssertCalled(t, "BrewCoffee")
+	driver.AssertCalled(t, "ReturnChange", 50)
 }

@@ -26,7 +26,11 @@ func (m *CoffeeMachine) InsertCoin(amount int) {
 		return
 	}
 	if amount >= prixCafe {
-		_ = m.driver.BrewCoffee()
+		err := m.driver.BrewCoffee()
+		if err != nil {
+			_ = m.driver.ReturnChange(amount)
+			return
+		}
 		if amount > prixCafe {
 			_ = m.driver.ReturnChange(amount - prixCafe)
 		}
