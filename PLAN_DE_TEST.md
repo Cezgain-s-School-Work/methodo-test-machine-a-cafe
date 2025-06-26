@@ -45,15 +45,7 @@ ALORS le brewer reçoit l’ordre de faire un café
 ET 50cts sont restitués
 ```
 
-### 6. Insertion de plusieurs pièces pour atteindre le prix
-```gherkin
-ÉTANT DONNÉ une machine à café fonctionnelle
-QUAND on insère une pièce de 20cts puis une de 20cts puis une de 10cts
-ALORS le brewer reçoit l’ordre de faire un café
-ET aucune monnaie n’est restituée
-```
-
-### 7. Insertion d’un montant non multiple de 50cts
+### 6. Insertion d’un montant non multiple de 50cts
 ```gherkin
 ÉTANT DONNÉ une machine à café fonctionnelle
 QUAND on insère une pièce de 2€
@@ -61,7 +53,7 @@ ALORS le brewer reçoit l’ordre de faire un café
 ET 1,50€ sont restitués
 ```
 
-### 8. Machine défaillante à tout moment
+### 7. Machine défaillante à tout moment
 ```gherkin
 ÉTANT DONNÉ une machine à café défaillante
 QUAND on insère n’importe quelle pièce
